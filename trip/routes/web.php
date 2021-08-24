@@ -11,6 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', 'SpotController@index');
+Route::get('/spots/search', 'SpotController@search');
+Route::get('/spots/create', 'SpotController@create');
+Route::get('/spots/{spot}/edit', 'SpotController@edit');
+Route::put('/spots/{spot}', 'SpotController@update');
+Route::delete('/spots/{spot}', 'SpotController@destroy');
+Route::get('/spots/{spot}', 'SpotController@show');
+Route::post('/spots', 'SpotController@store');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
